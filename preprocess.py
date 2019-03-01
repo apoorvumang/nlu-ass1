@@ -51,16 +51,6 @@ def getTokenized(ids):
         words_list.append(words_nopunc_nonum)
     return words_list
 
-def getVocabulary(tokenized_corpus):
-    vocabulary = []
-    for sentence in tokenized_corpus:
-        for token in sentence:
-            if token not in vocabulary:
-                vocabulary.append(token)
-    word2id = {w: idx for (idx, w) in enumerate(vocabulary)}
-    id2word = {idx: w for (idx, w) in enumerate(vocabulary)}
-    return vocabulary, word2id, id2word
-
 
 def getVocabulary(tokenized_corpus):
     vocabulary = {}
@@ -68,6 +58,8 @@ def getVocabulary(tokenized_corpus):
         for token in sentence:
             if token not in vocabulary:
                 vocabulary[token] = 1
+            else:
+                vocabulary[token] += 1
     word2id = {w: idx for (idx, w) in enumerate(vocabulary)}
     id2word = {idx: w for (idx, w) in enumerate(vocabulary)}
     return vocabulary, word2id, id2word
@@ -90,13 +82,13 @@ def generatePairs(sentences_tokenized, word2id, id2word):
                 idx_pairs.append((indices[center_word_pos], context_word_idx))
     return idx_pairs
 
-def writeToFile(vocabulary, word2id, id2word, pairs)
+def writeToFile(vocabulary, word2id, id2word, pairs):
     f1 = open('data/vocab.txt', 'w')
     f2 = open('data/word2id.txt', 'w')
     f3 = open('data/id2word.txt', 'w')
 
     for key, value in vocabulary.items():
-        f1.write(key + '\n')
+        f1.write(key + '\t' + str(value) + '\n')
     for key, value in word2id.items():
         f2.write(key + '\t' + str(value) + '\n')
     for key, value in id2word.items():
@@ -122,7 +114,7 @@ pairs = generatePairs(sentences_tokenized, word2id, id2word)
 
 
 print('Writing data to files')
-# writeToFile(vocabulary, word2id, id2word, pairs)
+writeToFile(vocabulary, word2id, id2word, pairs)
 
 
 
