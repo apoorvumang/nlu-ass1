@@ -7,6 +7,7 @@ import re
 from random import randint
 import math
 import argparse, sys
+import time
 
 
 POWER_FOR_NEGATIVE_SAMPLING = 3.0/4.0
@@ -120,6 +121,7 @@ print('Examples in 1 epoch', len(pairs))
 for epoch in range(NUM_EPOCHS):
     numDone = 0
     TOTAL_OBJECTIVE = 0
+    seconds = time.time()
     for pair in pairs:
         a = int(pair[0]) # centre word id
         b = int(pair[1]) # context word id
@@ -154,7 +156,8 @@ for epoch in range(NUM_EPOCHS):
             print('Objective', CUR_OBJECTIVE)
         numDone += 1
         TOTAL_OBJECTIVE += CUR_OBJECTIVE
-    print('Epoch done', epoch)
+    seconds2 = time.time()
+    print('Epoch done', epoch, 'time taken =', seconds2 - seconds, 'seconds')
     print('Averaged Total objective', TOTAL_OBJECTIVE/len(pairs))
 
 
