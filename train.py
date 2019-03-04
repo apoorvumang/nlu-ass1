@@ -115,9 +115,13 @@ print(len(idsForNegativeSampling), len(vocab), len(pairs))
 # C: context word embedding: vocab_size x d
 vocab_size = len(vocab)
 
-W = np.random.rand(EMBEDDING_DIMENSION, vocab_size)
-C = np.random.rand(vocab_size, EMBEDDING_DIMENSION)
+# W = np.random.rand(EMBEDDING_DIMENSION, vocab_size)
+# C = np.random.rand(vocab_size, EMBEDDING_DIMENSION)
+W = np.loadtxt('data/W_NEG_15_DIM_300_EPOCHS_100_cont.txt')
+C = np.loadtxt('data/C_NEG_15_DIM_300_EPOCHS_100_cont.txt')
+
 print('Examples in 1 epoch', len(pairs))
+LAST_OBJECTIVE = -999999999
 for epoch in range(NUM_EPOCHS):
     numDone = 0
     TOTAL_OBJECTIVE = 0
@@ -159,6 +163,12 @@ for epoch in range(NUM_EPOCHS):
     seconds2 = time.time()
     print('Epoch done', epoch, 'time taken =', seconds2 - seconds, 'seconds')
     print('Averaged Total objective', TOTAL_OBJECTIVE/len(pairs))
+    print('Last objective was', LAST_OBJECTIVE)
+    if(LAST_OBJECTIVE > TOTAL_OBJECTIVE/len(pairs)):
+        print('Objective decreased. Breaking')
+        break
+    else:
+        LAST_OBJECTIVE = TOTAL_OBJECTIVE/len(pairs)
 
 
 print('Training Done! Saving')
@@ -166,5 +176,5 @@ print('Training Done! Saving')
 suffix = 'NEG_' + str(NUM_NEGATIVE_SAMPLES) + '_DIM_' + str(EMBEDDING_DIMENSION) + '_EPOCHS_' + str(NUM_EPOCHS) + '_' + OUTFILES_SUFFIX
 np.savetxt('data/W_'+suffix +'.txt', W)
 np.savetxt('data/C_'+suffix +'.txt', C)
-
+print('Loaded from', 'data/W_NEG_15_DIM_300_EPOCHS_100_t5.txt')
 print('Saving done')
