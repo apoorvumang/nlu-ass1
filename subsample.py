@@ -84,9 +84,9 @@ def generatePairs(sentences_tokenized, word2id, id2word):
     return idx_pairs
     
 def writeToFile(vocabulary, word2id, id2word, pairs):
-    f1 = open('data/vocab_hashnum.txt', 'w')
-    f2 = open('data/word2id_hashnum.txt', 'w')
-    f3 = open('data/id2word_hashnum.txt', 'w')
+    f1 = open('data/vocab.txt', 'w')
+    f2 = open('data/word2id.txt', 'w')
+    f3 = open('data/id2word.txt', 'w')
 
     for key, value in vocabulary.items():
         f1.write(key.encode('ascii', 'ignore').decode('ascii') + '\t' + str(value) + '\n')
@@ -95,7 +95,7 @@ def writeToFile(vocabulary, word2id, id2word, pairs):
     for key, value in id2word.items():
         f3.write(str(key) + '\t' + value.encode('ascii', 'ignore').decode('ascii') + '\n')
 
-    f4 = open("data/pairs_subsampled_hashnum_win4.txt", "w")
+    f4 = open("data/pairs_subsampled.txt", "w")
     for pair in pairs:
         f4.write(str(pair[0]) + '\t' + str(pair[1]) + '\n')
     f4.close()

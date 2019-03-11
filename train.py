@@ -115,10 +115,10 @@ print(len(idsForNegativeSampling), len(vocab), len(pairs))
 # C: context word embedding: vocab_size x d
 vocab_size = len(vocab)
 
-# W = np.random.rand(EMBEDDING_DIMENSION, vocab_size)
-# C = np.random.rand(vocab_size, EMBEDDING_DIMENSION)
-W = np.load('data/W_NEG_15_DIM_300_EPOCHS_25_hashnum_full_win4_epoch75.npy.npz')['arr_0']
-C = np.load('data/C_NEG_15_DIM_300_EPOCHS_25_hashnum_full_win4_epoch75.npy.npz')['arr_0']
+W = np.random.rand(EMBEDDING_DIMENSION, vocab_size)
+C = np.random.rand(vocab_size, EMBEDDING_DIMENSION)
+# W = np.load('data/W_NEG_15_DIM_300_EPOCHS_25_hashnum_full_win4_epoch75.npy.npz')['arr_0']
+# C = np.load('data/C_NEG_15_DIM_300_EPOCHS_25_hashnum_full_win4_epoch75.npy.npz')['arr_0']
 
 print('Examples in 1 epoch', len(pairs))
 running_avg_objective = []
