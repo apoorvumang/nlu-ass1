@@ -6,9 +6,7 @@ Implemented word2vec in python using stochastic gradient descent. Dependencies:
 - numpy
 - nltk
 - pickle
-- tqdm
 - scipy
-- operator
 
 To **Install** Depedencies run the following command:
 ```
