@@ -1,6 +1,7 @@
-# Word2Vec implementation on Reuters corpus
+# Assignment 1 - NLU
 
-Word2vec is implemented in python3 and numpy. Gradient calculation and gradient ascent is written in python itself. It has following dependencies:
+Implemented word2vec in python using stochastic gradient descent. Dependencies:
+
 - python3
 - numpy
 - nltk
@@ -14,37 +15,27 @@ To **Install** Depedencies run the following command:
 pip3 install -r requirement.txt
 ```
 ## Data Preprocessing
-The Reuters dataset has *7k* documents. All these documents are combined together
-to make a single document. The words in the document are lower cased. To perform **data
-preprocessing** run the following command:
+To preprocess data and generate training samples, execute
 ```
-python3 word2vec.py --tokenize True --build_dict True --tokenized_data_file tokenized_data_lemmatized.pkl
+python3 subsample.py
 ```
-
-If you want to add *lemmatization* and remove the *stopwords* run the following command:
-
-```
-python3 word2vec.py --tokenize True --build_dict True --lemmatize True --tokenized_data_file tokenized_data_lemmatized.pkl --remove_stop_words True
-```
-The tokenized data will be saved in the file *tokenized_data_lemmatized.pkl* .
-You can also do *stemming* by switching *--stemming* True at run time.
-
 ## Word2vec Training
 To train the **word2vec** model run the following command:
 ```
-python3 word2vec.py --lemmatize True --embedding_dim 50 --train_embeddings True --nb_negative_samples 10 --lr 0.05 --nb_epochs 14
-```
-Read word2vec.py to learn about more options.
-
-## Pearson cofficient
-
-To calculate **Pearson cofficient**  run the following command:
-```
-python3 word2vec.py --pearson_cofficient True --word_model 'checkpoints/word_embeddings_10_50dim_with_lemma_v5.1.2.pkl' --context_model 'checkpoints/context_embedding_10_50dim_with_lemma_v5.1.2.pkl'
+python3 train.py --dim 150 --suffix myrun --numneg 15 --epochs 100 --lr 0.01
 ```
 
-## K-Neighbors
-To get the **K-nnearest neighbors** of the *test word*, run the following code:
+You can type ./train.py -h to get help on arguments that it takes.
+
+## Evaluation
+
+To evaluate a trained model, run 
 ```
-python3 word2vec.py --k_NN "Queen" --lemmatize True --k 10
+python3 evaluate.py --wfile W_NEG_20_DIM_300_EPOCHS_25_nonum_full_win3_epoch75.npy.npz --cfile C_NEG_20_DIM_300_EPOCHS_25_nonum_full_win3_epoch75.npy.npz
+```
+
+## K closest words
+To get the **10 closest words** of the *test word*, run the following code:
+```
+python3 findclosest.py --wfile W_NEG_20_DIM_300_EPOCHS_25_nonum_full_win3_epoch75.npy.npz --cfile C_NEG_20_DIM_300_EPOCHS_25_nonum_full_win3_epoch75.npy.npz --word test_word
 ```
