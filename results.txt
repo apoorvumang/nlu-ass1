@@ -1,0 +1,182 @@
+
+Graphs: Window size, dimension size, number of negative samples
+
+
+W_NEG_20_DIM_300_EPOCHS_25_nonum_full_win3_epoch75.npy.npz
+
+W:
+Simlex 0.121804617502587
+Wordsim 0.20161243598711406
+
+C:
+Simlex 0.13953518501066306
+Wordsim 0.30418429005041586
+
+(W+C)/2:
+Simlex 0.10508361488406495
+Wordsim 0.2772922755589194
+
+Concatenated:
+Simlex 0.15152822358615842
+Wordsim 0.2872126820051131
+
+
+W
+Simlex 0.121804617502587
+Wordsim 0.20161243598711406
+C
+Simlex 0.1395351850106630
+Wordsim 0.30418429005041586
+Avg
+Simlex 0.10508361488406495
+Wordsim 0.2772922755589194
+Concatenated
+Simlex 0.15152822358615842
+Wordsim 0.2872126820051131
+
+
+W_NEG_15_DIM_50_EPOCHS_100_d50.txt
+
+W
+Simlex 0.13399180482665152
+Wordsim 0.22883389146770813
+C
+Simlex 0.12446891309392734
+Wordsim 0.17428198712589468
+Avg
+Simlex 0.12700222862284707
+Wordsim 0.22608513933656066
+Concatenated
+Simlex 0.13851192780828211
+Wordsim 0.21148880261517133
+
+
+
+W_NEG_20_DIM_150_EPOCHS_50_nonum_full_win3_epoch50.npy.npz
+
+
+W
+Simlex 0.13155627257949706
+Wordsim 0.21855809924208683
+C
+Simlex 0.14977220069441646
+Wordsim 0.2203564610520837
+Avg
+Simlex 0.13103384367323245
+Wordsim 0.24096315141568495
+Concatenated
+Simlex 0.1655984135841716
+Wordsim 0.24519218448928357
+
+
+
+
+W_NEG_5_DIM_300_EPOCHS_50_nonum_full_win3.txt
+
+W
+Simlex 0.06711307305488051
+Wordsim 0.11220718636545118
+C
+Simlex 0.09697509997234345
+Wordsim 0.15574038097191037
+Avg
+Simlex 0.09986740280876627
+Wordsim 0.18226991632608566
+Concatenated
+Simlex 0.09475757675280665
+Wordsim 0.1601426120628534
+
+
+
+
+
+W_NEG_15_DIM_300_EPOCHS_500_t6.txt
+
+W
+Simlex 0.15146928330795634
+Wordsim 0.21642506649648263
+C
+Simlex 0.13061535357914947
+Wordsim 0.2078155175744577
+Avg
+Simlex 0.11794788186225634
+Wordsim 0.22500507591365224
+Concatenated
+Simlex 0.1628643624252438
+Wordsim 0.2265463474180249
+
+
+
+
+W_NEG_15_DIM_300_EPOCHS_25_hashnum_full_win4_epoch75.npy.npz
+
+W
+Simlex 0.07726487066922753
+Wordsim 0.23263288201015378
+C
+Simlex 0.10009309022334799
+Wordsim 0.22608371890013526
+Avg
+Simlex 0.10809459480752967
+Wordsim 0.18568258264546283
+Concatenated
+Simlex 0.10162801046385771
+Wordsim 0.2508061317427669
+
+
+
+would
+will
+could
+might
+should
+can
+be
+did
+must
+likely
+
+
+black
+mineworkers
+pegasus
+seismic
+netbacks
+african
+employed
+killed
+happened
+northgate
+striking
+renegotiate
+agrimont
+safety-kleen
+measurex
+allocating
+cnt
+memotec
+punch
+mercalli
+
+
+white
+house
+syria
+yemen
+rebate
+whites
+guesstimating
+derivatives
+bearish
+fitzwater
+ha
+testifying
+outright
+denman
+knight
+backs
+veg
+matter
+optional
+rapeseed
+

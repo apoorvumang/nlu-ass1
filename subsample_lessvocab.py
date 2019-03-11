@@ -61,9 +61,13 @@ def getVocabulary(tokenized_corpus):
                 vocabulary[token] = 1
             else:
                 vocabulary[token] += 1
-    word2id = {w: idx for (idx, w) in enumerate(vocabulary)}
-    id2word = {idx: w for (idx, w) in enumerate(vocabulary)}
-    return vocabulary, word2id, id2word
+    new_vocab = {}
+    for key, value in vocabulary:
+        if(value >= 2):
+            new_vocab[key] = valuy
+    word2id = {w: idx for (idx, w) in enumerate(new_vocab)}
+    id2word = {idx: w for (idx, w) in enumerate(new_vocab)}
+    return new_vocab, word2id, id2word
 
 def generatePairs(sentences_tokenized, word2id, id2word):
     window_size = 2
